@@ -2,136 +2,79 @@
 
 /* ─── Light theme (기본) ─── */
 :root {
-  --background: #FAFBFC;
+  --background: #FAFAF8;
   --background-secondary: #FFFFFF;
-  --foreground: #1A202C;
-  --foreground-secondary: #4A5568;
-  --foreground-muted: #A0AEC0;
-  --accent: #0E5BD8;
-  --accent-sky: #62C0FF;
-  --accent-hover: #0B4DC0;
-  --border: rgba(0, 0, 0, 0.08);
-  --border-hover: rgba(0, 0, 0, 0.15);
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-bg-hover: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(0, 0, 0, 0.06);
-  --glass-border-hover: rgba(0, 0, 0, 0.12);
+  --background-warm: #F5F3EF;
+  --foreground: #1A1A1A;
+  --foreground-secondary: #6B6B6B;
+  --foreground-muted: #A3A3A3;
+  --accent: #1A1A1A;
+  --accent-hover: #444444;
+  --accent-subtle: #E8E6E1;
+  --border: #E8E6E1;
+  --border-hover: #D4D0C8;
   --card-bg: #FFFFFF;
-  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  --code-bg: #F7F7F8;
-  --hero-gradient: radial-gradient(ellipse at 50% 0%, rgba(14, 91, 216, 0.08) 0%, transparent 70%);
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --code-bg: #F5F3EF;
+  --selection: rgba(26, 26, 26, 0.08);
 }
 
 /* ─── Dark theme ─── */
 .dark {
-  --background: #0F172A;
-  --background-secondary: #1E293B;
-  --foreground: #F2F9FF;
-  --foreground-secondary: #94A3B8;
-  --foreground-muted: #64748B;
-  --accent: #0E5BD8;
-  --accent-sky: #62C0FF;
-  --accent-hover: #3B82F6;
-  --border: rgba(255, 255, 255, 0.06);
-  --border-hover: rgba(255, 255, 255, 0.12);
-  --glass-bg: rgba(15, 23, 42, 0.6);
-  --glass-bg-hover: rgba(15, 23, 42, 0.8);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-border-hover: rgba(255, 255, 255, 0.2);
-  --card-bg: #1E293B;
-  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --code-bg: #1E293B;
-  --hero-gradient: radial-gradient(ellipse at 50% 0%, rgba(14, 91, 216, 0.15) 0%, transparent 70%);
+  --background: #141414;
+  --background-secondary: #1C1C1C;
+  --background-warm: #1A1917;
+  --foreground: #EBEBEB;
+  --foreground-secondary: #999999;
+  --foreground-muted: #666666;
+  --accent: #EBEBEB;
+  --accent-hover: #CCCCCC;
+  --accent-subtle: #2A2A28;
+  --border: #2A2A28;
+  --border-hover: #3A3A38;
+  --card-bg: #1C1C1C;
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --code-bg: #1A1917;
+  --selection: rgba(235, 235, 235, 0.1);
 }
 
 /* ─── Tailwind v4 theme ─── */
 @theme inline {
   --color-background: var(--background);
   --color-background-secondary: var(--background-secondary);
+  --color-background-warm: var(--background-warm);
   --color-foreground: var(--foreground);
   --color-foreground-secondary: var(--foreground-secondary);
   --color-foreground-muted: var(--foreground-muted);
   --color-accent: var(--accent);
-  --color-accent-sky: var(--accent-sky);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-subtle: var(--accent-subtle);
   --color-card-bg: var(--card-bg);
   --color-code-bg: var(--code-bg);
 
-  --font-sans: var(--font-inter), var(--font-noto-kr), system-ui, sans-serif;
+  --font-sans: var(--font-inter), var(--font-noto-sans-kr), system-ui, sans-serif;
+  --font-serif: var(--font-noto-serif-kr), "Georgia", serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
-/* ─── Base styles ─── */
+/* ─── Base ─── */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-feature-settings: "kern" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* ─── Utility: Glass ─── */
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  transition: all 0.3s ease;
+/* ─── Selection ─── */
+::selection {
+  background-color: var(--selection);
 }
 
-.glass:hover {
-  background: var(--glass-bg-hover);
-  border-color: var(--glass-border-hover);
-}
-
-/* ─── Utility: Gradient text ─── */
-.gradient-text {
-  background: linear-gradient(135deg, var(--accent-sky), var(--accent), var(--accent-sky));
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-shift 4s ease infinite;
-}
-
-/* ─── Utility: Hero gradient ─── */
-.hero-gradient {
-  background: var(--hero-gradient);
-}
-
-/* ─── Utility: Glow orb ─── */
-.glow-orb {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(80px);
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-/* ─── Keyframes ─── */
-@keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
-}
-
-/* ─── Scrollbar ─── */
+/* ─── Scrollbar (subtle) ─── */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -140,21 +83,34 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: var(--foreground-muted);
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--foreground-secondary);
+/* ─── Keyframes ─── */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes reveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes line-expand {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 /* ─── Code block (rehype-pretty-code) ─── */
 [data-rehype-pretty-code-figure] pre {
   overflow-x: auto;
-  border-radius: 0.75rem;
-  padding: 1rem 1.25rem;
-  font-size: 0.875rem;
-  line-height: 1.7;
-  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.8;
+  background: var(--code-bg) !important;
+  border: 1px solid var(--border);
 }
 
 [data-rehype-pretty-code-figure] code {
@@ -166,29 +122,30 @@ body {
   counter-increment: line;
   content: counter(line);
   display: inline-block;
-  width: 1.5rem;
-  margin-right: 1rem;
+  width: 1.25rem;
+  margin-right: 1.25rem;
   text-align: right;
   color: var(--foreground-muted);
+  font-size: 0.75rem;
 }
 
 [data-rehype-pretty-code-figure] [data-highlighted-line] {
-  background-color: rgba(14, 91, 216, 0.1);
-  margin: 0 -1.25rem;
-  padding: 0 1.25rem;
-  border-left: 2px solid var(--accent);
+  background-color: var(--selection);
+  margin: 0 -1.5rem;
+  padding: 0 1.5rem;
+  border-left: 2px solid var(--foreground);
 }
 
 /* 인라인 코드 */
 :not(pre) > code {
   background: var(--code-bg);
-  padding: 0.2em 0.4em;
-  border-radius: 0.375rem;
-  font-size: 0.875em;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
   font-family: var(--font-mono);
 }
 
-/* ─── 다크/라이트 코드 블록 전환 ─── */
+/* 다크/라이트 코드 블록 전환 */
 [data-theme="light"],
 html:not(.dark) [data-theme="dark"] {
   display: none;
@@ -203,90 +160,89 @@ html:not(.dark) [data-theme="light"] {
   display: block;
 }
 
-/* ─── Selection ─── */
-::selection {
-  background-color: rgba(14, 91, 216, 0.3);
-}
-
-/* ─── Prose 스타일 (MDX 본문) ─── */
+/* ─── Prose (MDX 본문) ─── */
 .prose {
-  --prose-body: var(--foreground-secondary);
-  --prose-headings: var(--foreground);
-  --prose-links: var(--accent);
-  --prose-bold: var(--foreground);
-  --prose-code: var(--foreground);
-  max-width: 72ch;
-  line-height: 1.8;
+  max-width: 68ch;
+  line-height: 1.9;
+  color: var(--foreground-secondary);
 }
 
 .prose h1, .prose h2, .prose h3, .prose h4 {
   color: var(--foreground);
-  font-weight: 700;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.01em;
   scroll-margin-top: 5rem;
 }
 
-.prose h1 { font-size: 2rem; margin-top: 2.5rem; margin-bottom: 1rem; }
-.prose h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 0.75rem; }
-.prose h3 { font-size: 1.25rem; margin-top: 1.75rem; margin-bottom: 0.5rem; }
+.prose h1 { font-size: 1.875rem; margin-top: 3rem; margin-bottom: 1.25rem; }
+.prose h2 { font-size: 1.375rem; margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+.prose h3 { font-size: 1.125rem; margin-top: 2rem; margin-bottom: 0.75rem; }
 
 .prose p {
   color: var(--foreground-secondary);
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+  margin-top: 0.875rem;
+  margin-bottom: 0.875rem;
 }
 
 .prose a {
-  color: var(--accent);
+  color: var(--foreground);
   text-decoration: underline;
+  text-decoration-color: var(--foreground-muted);
   text-underline-offset: 3px;
-  transition: color 0.2s;
+  transition: text-decoration-color 0.2s;
 }
 
 .prose a:hover {
-  color: var(--accent-hover);
+  text-decoration-color: var(--foreground);
 }
 
 .prose blockquote {
-  border-left: 3px solid var(--accent);
-  padding-left: 1rem;
-  color: var(--foreground-secondary);
+  border-left: 2px solid var(--border);
+  padding-left: 1.25rem;
+  color: var(--foreground-muted);
   font-style: italic;
-  margin: 1.5rem 0;
+  margin: 2rem 0;
 }
 
 .prose ul, .prose ol {
-  padding-left: 1.5rem;
-  margin: 0.75rem 0;
+  padding-left: 1.25rem;
+  margin: 1rem 0;
   color: var(--foreground-secondary);
 }
 
 .prose li {
-  margin: 0.25rem 0;
+  margin: 0.375rem 0;
 }
 
 .prose img {
-  border-radius: 0.75rem;
-  margin: 1.5rem 0;
+  border-radius: 4px;
+  margin: 2rem 0;
 }
 
 .prose hr {
-  border-color: var(--border);
-  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 3rem 0;
 }
 
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem 0;
+  margin: 2rem 0;
+  font-size: 0.875rem;
 }
 
 .prose th, .prose td {
-  border: 1px solid var(--border);
-  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  padding: 0.625rem 0.75rem;
   text-align: left;
 }
 
 .prose th {
-  background: var(--background-secondary);
   font-weight: 600;
+  color: var(--foreground);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }

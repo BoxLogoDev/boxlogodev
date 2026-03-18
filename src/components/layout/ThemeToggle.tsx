@@ -10,17 +10,15 @@ export function ThemeToggle() {
 
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) {
-    return <div className="h-9 w-9" />;
-  }
+  if (!mounted) return <div className="h-8 w-8" />;
 
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-foreground-secondary transition-colors hover:bg-[var(--glass-bg)] hover:text-foreground"
-      aria-label={theme === "dark" ? "라이트 모드로 전환" : "다크 모드로 전환"}
+      className="text-foreground-muted transition-colors hover:text-foreground"
+      aria-label={theme === "dark" ? "라이트 모드" : "다크 모드"}
     >
-      {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+      {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
     </button>
   );
 }

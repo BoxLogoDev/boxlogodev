@@ -67,29 +67,36 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-12">
+    <div className="mx-auto max-w-5xl px-6 py-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
       {/* 헤더 */}
-      <header className="mb-10">
-        <h1 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
+      <header className="mb-12 max-w-2xl">
+        <p className="mb-4 text-xs tracking-widest text-foreground-muted uppercase">
+          {post.category}
+        </p>
+        <h1 className="mb-6 font-serif text-3xl font-semibold leading-tight text-foreground sm:text-4xl">
           {post.title}
         </h1>
         <BlogMeta post={post} />
       </header>
 
+      {/* 구분선 */}
+      <div className="mb-12 h-px bg-[var(--border)]" />
+
       {/* 본문 + TOC */}
-      <div className="flex gap-12">
+      <div className="flex gap-16">
         <article className="min-w-0 flex-1">
           <MDXContent code={post.body} />
           <BlogNav prev={prev} next={next} />
         </article>
 
-        {/* 사이드바 TOC (데스크톱) */}
+        {/* 사이드바 TOC */}
         {post.toc && post.toc.length > 0 && (
-          <aside className="hidden w-56 shrink-0 lg:block">
+          <aside className="hidden w-48 shrink-0 lg:block">
             <BlogTOC toc={post.toc} />
           </aside>
         )}

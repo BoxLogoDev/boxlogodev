@@ -33,18 +33,20 @@ export function BlogTOC({ toc }: BlogTOCProps) {
 
   return (
     <nav className="sticky top-24">
-      <h4 className="mb-3 text-sm font-semibold text-foreground">목차</h4>
-      <ul className="space-y-1.5 border-l border-[var(--border)]">
+      <p className="mb-3 text-[11px] tracking-wider text-foreground-muted uppercase">
+        목차
+      </p>
+      <ul className="space-y-1">
         {toc.map((item) => (
           <li key={item.url}>
             <a
               href={item.url}
               className={cn(
-                "block border-l-2 py-1 text-sm transition-colors",
-                item.depth === 3 ? "pl-6" : "pl-3",
+                "block py-1 text-[13px] leading-relaxed transition-colors",
+                item.depth === 3 ? "pl-4" : "pl-0",
                 activeId === item.url.slice(1)
-                  ? "border-accent text-accent"
-                  : "border-transparent text-foreground-muted hover:text-foreground-secondary",
+                  ? "text-foreground"
+                  : "text-foreground-muted hover:text-foreground-secondary",
               )}
             >
               {item.title}

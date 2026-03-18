@@ -1,9 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Badge } from "@/components/ui/Badge";
-import { CATEGORIES } from "@/lib/constants";
 import { formatDate, readingTime } from "@/lib/utils";
-import { Calendar, Clock } from "lucide-react";
 
 interface BlogCardProps {
   post: {
@@ -18,46 +15,39 @@ interface BlogCardProps {
 }
 
 export function BlogCard({ post }: BlogCardProps) {
-  const categoryInfo = CATEGORIES.find((c) => c.name === post.category);
-
   return (
-    <Link
-      href={`/blog/${post.slug}`}
-      className="group block rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] p-5 transition-all duration-300 hover:border-[var(--border-hover)] hover:shadow-lg hover:shadow-accent/5"
-    >
+    <Link href={`/blog/${post.slug}`} className="group block">
       {post.cover && (
-        <div className="relative mb-4 aspect-video overflow-hidden rounded-xl">
+        <div className="relative mb-4 aspect-[3/2] overflow-hidden rounded-lg bg-[var(--background-warm)]">
           <Image
             src={post.cover}
             alt={post.title}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           />
         </div>
       )}
 
-      <div className="flex items-center gap-2 mb-3">
-        <Badge color={categoryInfo?.color}>{post.category}</Badge>
-      </div>
-
-      <h3 className="mb-2 text-lg font-semibold text-foreground transition-colors group-hover:text-accent line-clamp-2">
-        {post.title}
-      </h3>
-
-      <p className="mb-4 text-sm text-foreground-secondary line-clamp-2">
-        {post.description}
-      </p>
-
-      <div className="flex items-center gap-4 text-xs text-foreground-muted">
-        <span className="flex items-center gap-1">
-          <Calendar size={12} />
-          {formatDate(post.publishedAt)}
+      <div className="mb-2 flex items-center gap-3">
+        <span className="text-[11px] tracking-wider text-foreground-muted uppercase">
+          {post.category}
         </span>
-        <span className="flex items-center gap-1">
-          <Clock size={12} />
+        <span className="text-[11px] text-foreground-muted">
           {readingTime(post.body)}
         </span>
       </div>
+
+      <h3 className="mb-2 font-serif text-lg font-semibold leading-snug text-foreground transition-colors group-hover:text-foreground-secondary">
+        {post.title}
+      </h3>
+
+      <p className="mb-3 text-sm leading-relaxed text-foreground-muted line-clamp-2">
+        {post.description}
+      </p>
+
+      <time className="text-xs text-foreground-muted">
+        {formatDate(post.publishedAt)}
+      </time>
     </Link>
   );
 }
