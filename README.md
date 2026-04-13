@@ -29,7 +29,7 @@ I build practical systems around **SAP ops automation**, **AI agents**, and **de
 
 <table>
 <tr>
-<td width="50%">
+<td width="33%" valign="top">
 
 ### 🧩 [sapstack](https://github.com/BoxLogoDev/sapstack)
 **Universal SAP Skills & Agents for Claude Code**
@@ -39,19 +39,7 @@ FI · CO · TR · MM · SD · PP · HCM · SFSF · ABAP · S/4 Migration · BTP 
 `JavaScript` · ![Stars](https://img.shields.io/github/stars/BoxLogoDev/sapstack?style=social)
 
 </td>
-<td width="50%">
-
-### 🏛️ [govhelper](https://github.com/BoxLogoDev/govhelper)
-**AI 기반 정부지원사업 매칭 플랫폼**
-
-AI-powered Government Support Program Matching — 사업자 조건에 맞는 정부지원사업을 자동 매칭
-
-`TypeScript` · [Live →](https://govhelpers.com) · ![Stars](https://img.shields.io/github/stars/BoxLogoDev/govhelper?style=social)
-
-</td>
-</tr>
-<tr>
-<td width="50%">
+<td width="33%" valign="top">
 
 ### 🤖 [sap-assistant-desktop](https://github.com/BoxLogoDev/sap-assistant-desktop)
 **RAG 기반 SAP 운영 Q&A 데스크톱 봇**
@@ -61,7 +49,7 @@ FastAPI + ChromaDB + Azure OpenAI — SAP 운영 지식을 RAG로 구조화하�
 `TypeScript` · `Python` · ![Stars](https://img.shields.io/github/stars/BoxLogoDev/sap-assistant-desktop?style=social)
 
 </td>
-<td width="50%">
+<td width="33%" valign="top">
 
 ### 📚 [lswiki0906](https://github.com/BoxLogoDev/lswiki0906)
 **개발/운영 지식 개인 위키**
