@@ -45,7 +45,7 @@ FI · CO · TR · MM · SD · PP · HCM · SFSF · ABAP · S/4 Migration · BTP 
 
 AI-powered Government Support Program Matching — 사업자 조건에 맞는 정부지원사업을 자동 매칭
 
-`TypeScript` · [Live →](https://govhelper.vercel.app)
+`TypeScript` · [Live →](https://govhelpers.com)
 
 </td>
 </tr>
